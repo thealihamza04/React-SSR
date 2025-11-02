@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+@plugin "daisyui/theme" {
+  name: "apple";
+  default: false;
+  prefersdark: false;
+  color-scheme: "light";
+
+  --color-base-100: oklch(100% 0 0);
+  /* pure white */
+  --color-base-200: oklch(97% 0 0);
+  /* subtle contrast */
+  --color-base-300: oklch(92% 0 0);
+  /* divider tone */
+  --color-base-content: oklch(22% 0 0);
+  /* dark neutral text */
+
+  --color-primary: oklch(70% 0.12 240);
+  /* macOS blue */
+  --color-primary-content: oklch(100% 0 0);
+
+  --color-secondary: oklch(75% 0.08 250);
+  /* soft blue-gray */
+  --color-secondary-content: oklch(20% 0 0);
+
+  --color-accent: oklch(95% 0.15 140);
+  /* soft mint accent */
+  --color-accent-content: oklch(20% 0 0);
+
+  --color-neutral: oklch(28% 0 0);
+  /* dark text gray */
+  --color-neutral-content: oklch(98% 0 0);
+
+  --color-info: oklch(72% 0.1 240);
+  --color-success: oklch(65% 0.15 150);
+  --color-warning: oklch(78% 0.14 80);
+  --color-error: oklch(65% 0.17 30);
+
+  --radius-selector: 0.75rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+@plugin "daisyui/theme" {
+  name: "apple-dark";
+  default: false;
+  prefersdark: true;
+  color-scheme: "dark";
+
+  --color-base-100: oklch(17% 0 0);
+  /* pure dark background */
+  --color-base-200: oklch(22% 0 0);
+  /* elevated surface */
+  --color-base-300: oklch(28% 0 0);
+  /* divider tone */
+  --color-base-content: oklch(96% 0 0);
+  /* near-white text */
+
+  --color-primary: oklch(68% 0.14 240);
+  /* macOS blue accent */
+  --color-primary-content: oklch(100% 0 0);
+
+  --color-secondary: oklch(80% 0.07 250);
+  /* soft gray-blue */
+  --color-secondary-content: oklch(15% 0 0);
+
+  --color-accent: oklch(85% 0.15 150);
+  /* gentle green accent */
+  --color-accent-content: oklch(15% 0 0);
+
+  --color-neutral: oklch(25% 0 0);
+  /* deep neutral surface */
+  --color-neutral-content: oklch(90% 0 0);
+
+  --color-info: oklch(70% 0.1 240);
+  --color-success: oklch(65% 0.15 150);
+  --color-warning: oklch(75% 0.12 80);
+  --color-error: oklch(60% 0.18 30);
+
+  --radius-selector: 0.75rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0.02;
+}
+
+
+/* Global typography and base look */
+html,
+body,
+#root {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+    "Segoe UI Emoji", sans-serif;
+}
