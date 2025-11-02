@@ -116,5 +116,27 @@ createServer()`,
 npm run build        # build client + server bundles
 npm run preview      # run production SSR`,
   },
+  {
+    title: 'Deploy to Vercel',
+    lang: 'bash',
+    code: `# Ensure these files exist (added in this template):
+# vercel.json
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build:vercel",
+  "rewrites": [
+    { "source": "/assets/(.*)", "destination": "/assets/$1" },
+    { "source": "/((?!assets/|api/|.*\\..*).*)", "destination": "/api/index.js" }
+  ]
+}
+
+# package.json (scripts)
+"build:vercel": "npm run build && node scripts/vercel-copy-assets.cjs"
+
+# Deploy commands
+npm i -g vercel          # install Vercel CLI (once)
+vercel                   # first deploy, accept defaults
+vercel --prod            # promote a production deployment`,
+  },
 ]
 

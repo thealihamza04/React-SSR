@@ -6,12 +6,14 @@ import bash from 'react-syntax-highlighter/dist/esm/languages/prism/bash'
 import css from 'react-syntax-highlighter/dist/esm/languages/prism/css'
 import markup from 'react-syntax-highlighter/dist/esm/languages/prism/markup'
 import oneDark from 'react-syntax-highlighter/dist/esm/styles/prism/one-dark'
+import json from 'react-syntax-highlighter/dist/esm/languages/prism/json'
 
 SyntaxHighlighter.registerLanguage('jsx', jsx)
 SyntaxHighlighter.registerLanguage('javascript', javascript)
 SyntaxHighlighter.registerLanguage('bash', bash)
 SyntaxHighlighter.registerLanguage('css', css)
 SyntaxHighlighter.registerLanguage('markup', markup)
+SyntaxHighlighter.registerLanguage('json', json)
 
 function Code({ children, language = 'javascript' }) {
   return (
