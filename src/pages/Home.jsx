@@ -16,7 +16,7 @@ function Home() {
 
         <div className="flex items-center justify-center gap-6">
           <a
-            href="https://github.com/your-username/react-ssr"
+            href="https://github.com/thealihamza04/react-ssr"
             target="_blank"
             rel="noreferrer"
             className="rounded-full btn btn-outline px-6 py-2.5 text-base font-medium text-base-content/80 hover:bg-base-200 hover:text-base-content transition-all duration-200"
