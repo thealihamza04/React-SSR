@@ -4,11 +4,13 @@ export const intro =
 export const steps = [
   {
     title: 'Install dependencies',
+    lang: 'bash',
     code: `npm i react-router-dom express sirv
 npm i -D tailwindcss @tailwindcss/vite daisyui cross-env`,
   },
   {
     title: 'Add client and server entries',
+    lang: 'jsx',
     code: `// src/entry-client.jsx
 import { hydrateRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
@@ -43,6 +45,7 @@ export function render(url) {
   },
   {
     title: 'Create an Express server for dev/prod',
+    lang: 'javascript',
     code: `// server/index.js
 import fs from 'node:fs'
 import path from 'node:path'
@@ -98,6 +101,7 @@ createServer()`,
   },
   {
     title: 'Configure Tailwind + DaisyUI (v4)',
+    lang: 'markup',
     code: `// src/index.css
 @import "tailwindcss";
 @plugin "daisyui";
@@ -107,6 +111,7 @@ createServer()`,
   },
   {
     title: 'Build and run',
+    lang: 'bash',
     code: `npm run dev          # start dev SSR
 npm run build        # build client + server bundles
 npm run preview      # run production SSR`,

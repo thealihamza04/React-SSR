@@ -1,15 +1,31 @@
-import { Link } from 'react-router-dom'
 import { intro, steps } from '../content/getStarted.js'
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter'
+import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx'
+import javascript from 'react-syntax-highlighter/dist/esm/languages/prism/javascript'
+import bash from 'react-syntax-highlighter/dist/esm/languages/prism/bash'
+import css from 'react-syntax-highlighter/dist/esm/languages/prism/css'
+import markup from 'react-syntax-highlighter/dist/esm/languages/prism/markup'
+import oneDark from 'react-syntax-highlighter/dist/esm/styles/prism/one-dark'
 
-function Code({ children }) {
+SyntaxHighlighter.registerLanguage('jsx', jsx)
+SyntaxHighlighter.registerLanguage('javascript', javascript)
+SyntaxHighlighter.registerLanguage('bash', bash)
+SyntaxHighlighter.registerLanguage('css', css)
+SyntaxHighlighter.registerLanguage('markup', markup)
+
+function Code({ children, language = 'javascript' }) {
   return (
-    <div className="rounded-lg bg-base-200 text-left p-4 overflow-x-auto font-mono text-sm leading-relaxed whitespace-pre">
-      {children.split('\n').map((line, i) => (
-        <div key={i} className="flex">
-          <span className="select-none text-base-content/40 w-8 text-right pr-4">{i + 1}</span>
-          <code className="text-base-content/90 whitespace-pre">{line}</code>
-        </div>
-      ))}
+    <div className="rounded-lg bg-base-200 text-left overflow-x-auto">
+      <SyntaxHighlighter
+        language={language}
+        style={oneDark}
+        showLineNumbers
+        wrapLongLines
+        customStyle={{ margin: 0, background: 'transparent', padding: '1rem' }}
+        lineNumberStyle={{ color: 'rgba(127,127,127,0.6)', marginRight: '1rem' }}
+      >
+        {children}
+      </SyntaxHighlighter>
     </div>
   )
 }
@@ -18,15 +34,6 @@ function GetStarted() {
   return (
     <main className="min-h-screen bg-base-100">
       <div className="max-w-5xl mx-auto px-8 py-20">
-        <div className="mb-10">
-          <Link
-            to="/"
-            className="inline-flex underline underline-offset-2   items-center gap-2 text-base-content/70 hover:text-base-content transition-colors"
-          >
-            Back
-          </Link>
-        </div>
-
         <h1 className="text-5xl font-semibold text-base-content mb-6 tracking-tight">Get Started</h1>
         <p className="text-base-content/70 text-lg leading-relaxed mb-12 max-w-3xl">{intro}</p>
 
@@ -34,7 +41,7 @@ function GetStarted() {
           {steps.map((s) => (
             <li key={s.title}>
               <div className="text-xl font-medium mb-3 text-base-content">{s.title}</div>
-              <Code>{s.code}</Code>
+              <Code language={s.lang}>{s.code}</Code>
             </li>
           ))}
         </ol>
