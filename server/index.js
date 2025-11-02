@@ -17,13 +17,13 @@ async function createServer() {
     vite = await createServer({ server: { middlewareMode: true }, appType: 'custom' })
     app.use(vite.middlewares)
   } else {
-    app.use('/assets', sirv(resolve('dist/client/assets'), { maxAge: 31536000, immutable: true }))
+    app.use('/assets', sirv(resolve('dist/assets'), { maxAge: 31536000, immutable: true }))
   }
 
   app.use('*', async (req, res) => {
     const url = req.originalUrl
     try {
-      const templatePath = isProd ? resolve('dist/client/index.html') : resolve('index.html')
+      const templatePath = isProd ? resolve('dist/index.html') : resolve('index.html')
       let template = fs.readFileSync(templatePath, 'utf-8')
       if (!isProd && vite) template = await vite.transformIndexHtml(url, template)
 
